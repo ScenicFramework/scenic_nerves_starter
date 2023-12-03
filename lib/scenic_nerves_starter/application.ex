@@ -11,11 +11,11 @@ defmodule ScenicNervesStarter.Application do
     # for other strategies and supported options
     opts = [strategy: :one_for_one, name: ScenicNervesStarter.Supervisor]
 
+    scenic_viewport_config = Application.get_env(:scenic_nerves_starter, :viewport)
+
     children =
       [
-        # Children for all targets
-        # Starts a worker by calling: ScenicNervesStarter.Worker.start_link(arg)
-        # {ScenicNervesStarter.Worker, arg},
+        {Scenic, [scenic_viewport_config]}
       ] ++ children(target())
 
     Supervisor.start_link(children, opts)

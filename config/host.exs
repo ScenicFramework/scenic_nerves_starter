@@ -19,3 +19,15 @@ config :nerves_runtime,
        "a.nerves_fw_platform" => "host",
        "a.nerves_fw_version" => "0.0.0"
      }}
+
+config :scenic_nerves_starter, :viewport,
+  size: {800, 600},
+  theme: :dark,
+  default_scene: ScenicNervesStarter.Scene.Home,
+  drivers: [
+    [
+      module: Scenic.Driver.Local,
+      window: [title: "scenic_nerves_starter"],
+      on_close: :stop_system
+    ]
+  ]

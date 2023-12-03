@@ -20,6 +20,8 @@ config :nerves, :firmware, rootfs_overlay: "rootfs_overlay"
 
 config :nerves, source_date_epoch: "1701646776"
 
+config :scenic, :assets, module: ScenicNervesStarter.Assets
+
 if Mix.target() == :host do
   import_config "host.exs"
 else
