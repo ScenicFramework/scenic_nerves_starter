@@ -47,7 +47,8 @@ defmodule ScenicNervesStarter.MixProject do
       {:ring_logger, "~> 0.11.0"},
       {:toolshed, "~> 0.3.0"},
       {:scenic, "~> 0.11.0"},
-      {:scenic_driver_local, "~> 0.11.0"},
+      # {:scenic_driver_local, "~> 0.11.0"},
+      {:scenic_driver_local, github: "ScenicFramework/scenic_driver_local"},
 
       # Allow Nerves.Runtime on host to support development, testing and CI.
       # See config/host.exs for usage.
@@ -66,7 +67,12 @@ defmodule ScenicNervesStarter.MixProject do
       {:nerves_system_rpi2, "~> 1.24", runtime: false, targets: :rpi2},
       {:nerves_system_rpi3, "~> 1.24", runtime: false, targets: :rpi3},
       {:nerves_system_rpi3a, "~> 1.24", runtime: false, targets: :rpi3a},
-      {:nerves_system_rpi4, "~> 1.24", runtime: false, targets: :rpi4},
+      # {:nerves_system_rpi4, "~> 1.24", runtime: false, targets: :rpi4},
+      {:nerves_system_rpi4,
+       path: "~/dev/forks/nerves_system_rpi4",
+       runtime: false,
+       targets: :rpi4,
+       nerves: [compile: true]},
       {:nerves_system_bbb, "~> 2.19", runtime: false, targets: :bbb},
       {:nerves_system_osd32mp1, "~> 0.15", runtime: false, targets: :osd32mp1},
       {:nerves_system_x86_64, "~> 1.24", runtime: false, targets: :x86_64},
